@@ -16,8 +16,8 @@ body {
 
 .header {
     display: flex;
-    background-color: #333;
     height: 10vh;
+    box-shadow: 0.4rem 0.5rem 1rem #888888;
 }
 
 .header-container {
@@ -27,9 +27,124 @@ body {
     width: 100%;
 }
 
-.title {
-    color: white;
+.header .title {
+    color: black;
     text-align: center;
+}
+
+/* Body */
+
+.body {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
+.add-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 11vh;
+}
+
+.add-books .title {
+    text-align: center;
+}
+
+.add-books button {
+    margin-top: 1rem;
+    width: 5rem;
+    padding: 0.3rem;
+    border: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.90);
+}
+
+.popup-book-add {
+    flex-direction: column;
+    background-color: white;
+}
+
+.popup-book-add {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 30vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-book-add .content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    min-width: 22vh;
+    max-width: 50vh;
+}
+
+.popup-book-add .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    align-items: center;
+}
+
+.input.checkbox {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+input[type='text'], input[type='submit'], input[type='number'] {
+    width: 70%;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+}
+
+input[type='submit'] {
+    width: 40%;
+}
+
+input[type='checkbox'] {
+    width: 1.3rem;
+    height: 1.3rem;
 }
 
 /* Footer */
