@@ -98,7 +98,9 @@ button:active {
     padding: 20px;
     border: 1px solid #888;
     min-width: 22vh;
-    max-width: 50vh;
+    max-width: 40vh;
+    padding-right: 4rem;
+    padding-left: 4rem;
 }
 
 .popup-book-add .title {
@@ -110,12 +112,13 @@ button:active {
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .input {
     display: grid;
     grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: 1fr 0.01fr;
     align-items: center;
 }
 
@@ -125,7 +128,7 @@ form {
 }
 
 input[type='text'], input[type='submit'], input[type='number'] {
-    width: 70%;
+    width: 100%;
     border: 1px solid gray;
     border-radius: 1rem;
     padding-left: 0.4rem;
@@ -148,6 +151,20 @@ input[type='checkbox'] {
     height: 1.3rem;
 }
 
+.title-error, .author-error, .pages-error {
+    visibility: hidden;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    color: red;
+}
+.popup-book-add button {
+    border: none;
+    background-color: lightgray;
+    width: 6rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+
 .show-books {
     min-height: 70vh;
     background-color: blue;
@@ -155,13 +172,14 @@ input[type='checkbox'] {
 }
 
 .empty {
-    display: block;
-    position: fixed;
-    top: 55%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: red;
+    width: 100%;
 }
 
 /* Footer */

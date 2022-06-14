@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="./styles.css">
 
-    <script src="./script.js"></script>
-    <script defer src="./add-book.js"></script>
+    <script defer src="./script.js"></script>
 
     <title>Library</title>
 </head>
@@ -37,32 +36,36 @@
                     <div class="title">
                         <h3>Add Book</h3>
                     </div>
-                    <form class="form" action="" id="form">
+                    <form class="form" id="form" onsubmit="return false;">
                         <div class="input">
                             <label for="title">Title:</label>
-                            <input type="text" id="title" name="title" required>
+                            <input type="text" id="title" name="title">
+                            <div class="title-error" id="title-error"> * Required</div>
                         </div>
                         <div class="input">
                             <label for="author">Author:</label>
-                            <input type="text" id="author" name="author" required>
+                            <input type="text" id="author" name="author">
+                            <div class="author-error" id="author-error"> * Required</div>
                         </div>
                         <div class="input">
                             <label for="pages">Pages:</label>
-                            <input type="number" id="pages" name="number" required>
+                            <input type="number" id="pages" name="number">
+                            <div class="pages-error" id="pages-error"> * Required</div>
                         </div>
                         <div class="input checkbox">
                             <label for="read">Read:</label>
-                            <input type="checkbox" id="read" name="read" required>
+                            <input type="checkbox" id="read" name="read">
                         </div>
                         <div class="submit">
-                            <input type="submit">
+                            <button type="submit" id="submit">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="show-books">
-                <div class="empty">
-                    <h2>Library Is Empty - Add Some Books</h2>
+                <div class="empty" id="empty">
+                    <h2>Library Is Empty</h2>
+                    <h2>Add Some Books</h2>
                 </div>
             </div>
         </div>
