@@ -35,15 +35,15 @@ body {
 /* Body */
 
 .body {
-    margin-top: 1.5rem;
+    margin-top: 3vh;
     display: flex;
     flex-direction: column;
+    height: 81%;
 }
 
 .body-container {
     display: flex;
     flex-direction: column;
-    background-color: red;
 }
 
 .add-books {
@@ -51,6 +51,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 11vh;
+    background-color: red;
 }
 
 .add-books .title {
@@ -145,6 +146,22 @@ input[type='submit'] {
 input[type='checkbox'] {
     width: 1.3rem;
     height: 1.3rem;
+}
+
+.show-books {
+    min-height: 70vh;
+    background-color: blue;
+    position: relative;
+}
+
+.empty {
+    display: block;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: red;
 }
 
 /* Footer */
