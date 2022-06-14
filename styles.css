@@ -38,7 +38,8 @@ body {
     margin-top: 3vh;
     display: flex;
     flex-direction: column;
-    height: 81%;
+    min-height: 81vh;
+    padding-bottom: 1rem;
 }
 
 .body-container {
@@ -198,6 +199,7 @@ input[type='checkbox'] {
 }
 .table {
     overflow: auto;
+    margin-bottom: 3rem;
 }
 
 table {

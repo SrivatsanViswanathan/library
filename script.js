@@ -144,7 +144,7 @@ function displayBooks() {
         const bookRead = document.createElement('td');
         const button = document.createElement('button');
         button.classList.add('delete-book');
-        button.value = i;
+        button.setAttribute('value', i);
         button.textContent = 'Remove';
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author;
@@ -166,11 +166,11 @@ function displayBooks() {
     }
     const deleteButton = document.querySelectorAll('.delete-book');
 
-    console.log(deleteButton.length);
     for (let i = 0; i < deleteButton.length; i++) {
-        console.log('s');
         deleteButton[i].addEventListener('click', () => {
-            myLibrary.splice(deleteButton[i].value, deleteButton[i].value + 1);
+            console.log(parseInt(deleteButton[i].value));
+            let removed = myLibrary.splice(parseInt(deleteButton[i].value), parseInt(1));
+            console.log(removed);
             console.log(myLibrary);
             displayBooks();
         })
