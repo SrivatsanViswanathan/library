@@ -27,10 +27,11 @@ submit.addEventListener('click', () => {
     if (title.value != '' && author.value != '' && pages.value != '') {
         const book = new Book(title.value, author.value, pages.value, read.checked)
         addBookToLibrary(book);
-        console.table(myLibrary);
+        console.log(myLibrary);
         formPopup.style.display = 'none';
         formReset();
         isEmpty = emptyLibrary();
+        displayBooks();
     }
 }); 
 
@@ -106,5 +107,72 @@ function emptyLibrary() {
     else {
         empty.style.display = 'none';
         return false;
+    }
+}
+
+function displayBooks() {
+    const showBooks = document.querySelector('#show-books');
+    const divTable = document.querySelector('#table');
+    divTable.textContent = '';
+    const table = document.createElement('table');
+    if (divTable.getElementsByTagName('table').length <= 0 && myLibrary.length > 0) {
+        const row1 = document.createElement('tr');
+        row1.classList.add('table-heading');
+        const heading1 = document.createElement('th');
+        const heading2 = document.createElement('th');
+        const heading3 = document.createElement('th');
+        const heading4 = document.createElement('th');
+        heading1.textContent = 'Title';
+        heading2.textContent = 'Author';
+        heading3.textContent = 'Pages';
+        heading4.textContent = 'Read';
+        row1.appendChild(heading1);
+        row1.appendChild(heading2);
+        row1.appendChild(heading3);
+        row1.appendChild(heading4);
+        table.appendChild(row1);
+        divTable.appendChild(table);
+    }
+    else {
+        emptyLibrary();
+    }
+    for (let i = 0; i < myLibrary.length; i++) {
+        const row = document.createElement('tr');
+        const bookTitle = document.createElement('td');
+        const bookAuthor = document.createElement('td');
+        const bookPages = document.createElement('td');
+        const bookRead = document.createElement('td');
+        const button = document.createElement('button');
+        button.classList.add('delete-book');
+        button.value = i;
+        button.textContent = 'Remove';
+        bookTitle.textContent = myLibrary[i].title;
+        bookAuthor.textContent = myLibrary[i].author;
+        bookPages.textContent = myLibrary[i].pages;
+        if (myLibrary[i].read) {
+            bookRead.textContent = 'Finished';
+        }
+        else {
+            bookRead.textContent = 'Not Finished';
+        }
+
+        row.appendChild(bookTitle);
+        row.appendChild(bookAuthor);
+        row.appendChild(bookPages);
+        row.appendChild(bookRead);
+        row.appendChild(button);
+        table.appendChild(row);
+
+    }
+    const deleteButton = document.querySelectorAll('.delete-book');
+
+    console.log(deleteButton.length);
+    for (let i = 0; i < deleteButton.length; i++) {
+        console.log('s');
+        deleteButton[i].addEventListener('click', () => {
+            myLibrary.splice(deleteButton[i].value, deleteButton[i].value + 1);
+            console.log(myLibrary);
+            displayBooks();
+        })
     }
 }

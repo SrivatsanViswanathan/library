@@ -157,6 +157,7 @@ input[type='checkbox'] {
     grid-row: 2 / 3;
     color: red;
 }
+
 .popup-book-add button {
     border: none;
     background-color: lightgray;
@@ -166,6 +167,9 @@ input[type='checkbox'] {
 }
 
 .show-books {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
     min-height: 70vh;
     background-color: blue;
     position: relative;
@@ -180,6 +184,42 @@ input[type='checkbox'] {
     font-size: 1.9rem;
     color: red;
     width: 100%;
+}
+
+.table-container {
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+}
+
+.delete-book {
+    color: red;
+    border: none;
+    margin-top: 1.5vh;
+}
+.table {
+    overflow: auto;
+}
+
+table {
+    margin-top: 1rem;
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.show-books .table-heading {
+    color: black;
+    font-weight: bold;
+    background-color: gray;
 }
 
 /* Footer */
