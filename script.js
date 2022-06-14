@@ -113,7 +113,9 @@ function emptyLibrary() {
 function displayBooks() {
     const showBooks = document.querySelector('#show-books');
     const divTable = document.querySelector('#table');
+    const buttons = document.querySelector('#buttons');
     divTable.textContent = '';
+    buttons.textContent = '';
     const table = document.createElement('table');
     if (divTable.getElementsByTagName('table').length <= 0 && myLibrary.length > 0) {
         const row1 = document.createElement('tr');
@@ -160,7 +162,7 @@ function displayBooks() {
         row.appendChild(bookAuthor);
         row.appendChild(bookPages);
         row.appendChild(bookRead);
-        row.appendChild(button);
+        buttons.appendChild(button);
         table.appendChild(row);
 
     }
