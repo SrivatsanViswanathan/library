@@ -23,8 +23,8 @@ formButton.addEventListener('click', () => {
 });
 
 submit.addEventListener('click', () => {
-    formValidation();
-    if (title.value != '' && author.value != '' && pages.value != '') {
+    let pass = formValidation();
+    if (pass) {
         const book = new Book(title.value, author.value, pages.value, read.checked)
         addBookToLibrary(book);
         console.log(myLibrary);
@@ -63,6 +63,11 @@ function addBookToLibrary(book) {
 
 // Validate form
 function formValidation() {
+    let pass = false;
+    if (title.value != '' && author.value != '' && pages.value != '' && parseInt(pages.value) > 0) {
+        pass = true;
+    }
+
     if (title.value === '') {
         titleError.style.visibility = 'visible';
     }
@@ -79,10 +84,17 @@ function formValidation() {
 
     if (pages.value === '') {
         pagesError.style.visibility = 'visible';
+        pagesError.textContent = '* Required'
+    }
+    else if (parseInt(pages.value) <= 0) {
+        pagesError.textContent = '* Number must be greater than 0'
+        pagesError.style.visibility = 'visible';
     }
     else {
         pagesError.style.visibility = 'hidden';
+        pagesError.textContent = '* Required'
     }
+    return pass;
 }
 
 // Reset form
@@ -166,8 +178,9 @@ function displayBooks() {
         table.appendChild(row);
 
     }
-    const deleteButton = document.querySelectorAll('.delete-book');
 
+    const deleteButton = document.querySelectorAll('.delete-book');
+    
     for (let i = 0; i < deleteButton.length; i++) {
         deleteButton[i].addEventListener('click', () => {
             console.log(parseInt(deleteButton[i].value));
