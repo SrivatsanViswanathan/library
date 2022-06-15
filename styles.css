@@ -179,7 +179,7 @@ input[type='checkbox'] {
 
 .show-books {
     display: grid;
-    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-columns: 2fr 6fr 2fr;
     gap: 2rem;
     justify-content: center;
     min-height: 70vh;
@@ -216,7 +216,7 @@ img {
 .delete-book {
     color: white;
     border: none;
-    width: 100%;
+    width: 1.5rem;
     height: 1.2rem;
     cursor: pointer;
 }
@@ -231,8 +231,7 @@ img {
 
 .table-container {
     display: grid;
-    grid-column: 0.5fr 1fr;
-    gap: 1rem;
+    grid-column: 3fr 1fr;
 }
 
 .table {
@@ -246,18 +245,18 @@ img {
     grid-column: 2 / 3;
     display: grid;
     height: 5vh;
-    gap: 1.033rem;
+    gap: 1rem;
 }
 
 table {
     margin-top: 1rem;
     border-collapse: collapse;
     overflow: auto;
+    width: 100%;
 }
 
 td, th {
     border: 0.5px solid black;
-    text-align: left;
     padding-right: 2rem;
     padding-left: 2rem;
     padding-top: 0.5rem;
