@@ -156,6 +156,8 @@ function displayBooks() {
         const bookAuthor = document.createElement('td');
         const bookPages = document.createElement('td');
         const bookRead = document.createElement('td');
+        bookRead.classList.add('read-book')
+        bookRead.setAttribute('id', 'read-book');
         const trash = document.createElement('img');
         trash.classList.add('delete-book');
         trash.setAttribute('src', './images/trash-can.png')
@@ -166,9 +168,13 @@ function displayBooks() {
         bookPages.textContent = myLibrary[i].pages;
         if (myLibrary[i].read) {
             bookRead.textContent = 'Finished';
+            bookRead.style.color = 'green';
+            bookRead.style.fontWeight = 'bold';
         }
         else {
             bookRead.textContent = 'Not Finished';
+            bookRead.style.color = 'red';
+            bookRead.style.fontWeight = 'bold';
         }
 
         row.appendChild(bookTitle);
@@ -181,6 +187,7 @@ function displayBooks() {
     }
 
     const deleteButton = document.querySelectorAll('.delete-book');
+    const changeRead = document.querySelectorAll('#read-book');
     
     for (let i = 0; i < deleteButton.length; i++) {
         deleteButton[i].addEventListener('click', () => {
@@ -189,6 +196,22 @@ function displayBooks() {
             console.log(removed);
             console.log(myLibrary);
             displayBooks();
-        })
+        });
+    }
+
+    for (let i = 0; i < changeRead.length; i++) {
+        changeRead[i].addEventListener('click', () => {
+            console.log(changeRead[i].textContent);
+            if (changeRead[i].textContent === 'Finished') {
+                changeRead[i].textContent = 'Not Finished';
+                changeRead[i].style.color = 'red';
+                myLibrary[i].read = false;
+            }
+            else {
+                changeRead[i].textContent = 'Finished';
+                changeRead[i].style.color = 'green';
+                myLibrary[i].read = true;
+            }
+        });
     }
 }

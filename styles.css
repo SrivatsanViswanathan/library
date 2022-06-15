@@ -217,6 +217,14 @@ img {
     cursor: pointer;
 }
 
+.read-book {
+    cursor: pointer;
+}
+
+.read-book:hover {
+    text-decoration: underline;
+}
+
 .table-container {
     display: grid;
     grid-column: 0.5fr 1fr;
