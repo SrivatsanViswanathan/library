@@ -156,10 +156,11 @@ function displayBooks() {
         const bookAuthor = document.createElement('td');
         const bookPages = document.createElement('td');
         const bookRead = document.createElement('td');
-        const button = document.createElement('button');
-        button.classList.add('delete-book');
-        button.setAttribute('value', i);
-        button.textContent = 'Remove';
+        const trash = document.createElement('img');
+        trash.classList.add('delete-book');
+        trash.setAttribute('src', './images/trash-can.png')
+        trash.setAttribute('value', i);
+        trash.textContent = 'Remove';
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author;
         bookPages.textContent = myLibrary[i].pages;
@@ -174,7 +175,7 @@ function displayBooks() {
         row.appendChild(bookAuthor);
         row.appendChild(bookPages);
         row.appendChild(bookRead);
-        buttons.appendChild(button);
+        buttons.appendChild(trash);
         table.appendChild(row);
 
     }

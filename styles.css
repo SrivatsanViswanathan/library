@@ -12,7 +12,6 @@ body {
     background-color: lightgray;
 }
 
-
 /* Header */
 
 .header {
@@ -54,12 +53,14 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 12vh;
-    background-color: forestgreen;
+    background-color: black;
 }
 
 .add-books .title {
+    color: white;
     margin-top: 0.5rem;
     text-align: center;
+    border-bottom: 1px solid white;
 }
 
 .add-books button {
@@ -69,7 +70,7 @@ body {
     padding: 0.3rem;
     border-radius: 1rem;
     border: none;
-    background-color:black
+    background-color: black
 }
 
 button {
@@ -211,9 +212,9 @@ img {
 .delete-book {
     color: white;
     border: none;
-    background-color: maroon;
-    width: 125%;
+    width: 100%;
     height: 1.2rem;
+    cursor: pointer;
 }
 
 .table-container {
@@ -243,7 +244,7 @@ table {
 }
 
 td, th {
-    border: 1px solid black;
+    border: 0.5px solid black;
     text-align: left;
     padding-right: 2rem;
     padding-left: 2rem;
@@ -258,9 +259,9 @@ td {
 }
 
 .show-books .table-heading {
-    color: black;
+    color: white;
     font-weight: bold;
-    background-color: gray;
+    background-color: maroon;
 }
 
 /* Footer */
