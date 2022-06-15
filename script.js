@@ -168,13 +168,17 @@ function displayBooks() {
         bookPages.textContent = myLibrary[i].pages;
         if (myLibrary[i].read) {
             bookRead.textContent = 'Finished';
-            bookRead.style.color = 'green';
-            bookRead.style.fontWeight = 'bold';
+            bookRead.style.cssText = `
+                color: 'green';
+                font-weight: bold;
+            `;
         }
         else {
             bookRead.textContent = 'Not Finished';
-            bookRead.style.color = 'red';
-            bookRead.style.fontWeight = 'bold';
+            bookRead.style.cssText = `
+                color: 'red';
+                font-weight: bold;
+            `;
         }
 
         row.appendChild(bookTitle);
