@@ -17,6 +17,7 @@ const read = document.querySelector('#read');
 const empty = document.querySelector('#empty');
 
 let isEmpty = emptyLibrary();
+let counter = 0;
 
 formButton.addEventListener('click', () => {
     formPopup.style.display = 'block';
@@ -27,7 +28,6 @@ submit.addEventListener('click', () => {
     if (pass) {
         const book = new Book(title.value, author.value, pages.value, read.checked)
         addBookToLibrary(book);
-        console.log(myLibrary);
         formPopup.style.display = 'none';
         formReset();
         isEmpty = emptyLibrary();
@@ -162,7 +162,7 @@ function displayBooks() {
         trash.classList.add('delete-book');
         trash.setAttribute('src', './images/trash-can.png')
         trash.setAttribute('value', i);
-        trash.textContent = 'Remove';
+        trash.setAttribute('name', i);
         bookTitle.textContent = myLibrary[i].title;
         bookAuthor.textContent = myLibrary[i].author;
         bookPages.textContent = myLibrary[i].pages;
@@ -183,7 +183,28 @@ function displayBooks() {
         row.appendChild(bookRead);
         buttons.appendChild(trash);
         table.appendChild(row);
-
+        let marginTest = (row.offsetHeight / 4.5);
+        let windowAbove = window.matchMedia("(min-width: 701px)")
+        let windowBelow = window.matchMedia("(max-width: 700px)")
+        console.log(windowBelow.matches);
+        console.log(row.offsetHeight);
+        if (counter > 0 && windowAbove.matches === true && row.offsetHeight <= 35 && i != 0) {
+            trash.style.marginTop = (marginTest / 1.5).toString() + 'px';
+            counter--;
+        }
+        if (counter > 0 && windowBelow.matches === true && row.offsetHeight <= 54 && i != 0) {
+            trash.style.marginTop = (marginTest / 2).toString() + 'px';
+            counter--;
+            console.log('s');
+        }
+        if (row.offsetHeight > 35 && windowAbove.matches === true) {
+            trash.style.marginTop = (marginTest * 1.1).toString() + 'px';
+            counter++;
+        }
+        if (row.offsetHeight > 54 && windowBelow.matches === true) {
+            trash.style.marginTop = (marginTest / 1.4).toString() + 'px';
+            counter++;
+        }
     }
 
     const deleteButton = document.querySelectorAll('.delete-book');
@@ -191,8 +212,8 @@ function displayBooks() {
     
     for (let i = 0; i < deleteButton.length; i++) {
         deleteButton[i].addEventListener('click', () => {
-            console.log(parseInt(deleteButton[i].value));
-            let removed = myLibrary.splice(parseInt(deleteButton[i].value), parseInt(1));
+            console.log(deleteButton[i].name);
+            let removed = myLibrary.splice(parseInt(deleteButton[i].name), parseInt(1));
             console.log(removed);
             console.log(myLibrary);
             displayBooks();
