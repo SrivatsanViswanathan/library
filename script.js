@@ -151,6 +151,7 @@ function displayBooks() {
     else {
         emptyLibrary();
     }
+
     for (let i = 0; i < myLibrary.length; i++) {
         const row = document.createElement('tr');
         const bookTitle = document.createElement('td');
@@ -187,6 +188,7 @@ function displayBooks() {
         let marginTest = (row.offsetHeight / 4.5);
         let windowAbove = window.matchMedia("(min-width: 701px)");
         let windowBelow = window.matchMedia("(max-width: 700px)");
+        
         if (counter > 0 && windowAbove.matches === true && row.offsetHeight <= 35 && i != 0) {
             trash.style.marginTop = (marginTest / 1.5).toString() + 'px';
             counter--;
