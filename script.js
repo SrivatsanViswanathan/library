@@ -122,6 +122,7 @@ function emptyLibrary() {
     }
 }
 
+// Display Books User has added to Library
 function displayBooks() {
     const showBooks = document.querySelector('#show-books');
     const divTable = document.querySelector('#table');
@@ -184,10 +185,8 @@ function displayBooks() {
         buttons.appendChild(trash);
         table.appendChild(row);
         let marginTest = (row.offsetHeight / 4.5);
-        let windowAbove = window.matchMedia("(min-width: 701px)")
-        let windowBelow = window.matchMedia("(max-width: 700px)")
-        console.log(windowBelow.matches);
-        console.log(row.offsetHeight);
+        let windowAbove = window.matchMedia("(min-width: 701px)");
+        let windowBelow = window.matchMedia("(max-width: 700px)");
         if (counter > 0 && windowAbove.matches === true && row.offsetHeight <= 35 && i != 0) {
             trash.style.marginTop = (marginTest / 1.5).toString() + 'px';
             counter--;
@@ -195,7 +194,6 @@ function displayBooks() {
         if (counter > 0 && windowBelow.matches === true && row.offsetHeight <= 54 && i != 0) {
             trash.style.marginTop = (marginTest / 2).toString() + 'px';
             counter--;
-            console.log('s');
         }
         if (row.offsetHeight > 35 && windowAbove.matches === true) {
             trash.style.marginTop = (marginTest * 1.1).toString() + 'px';
@@ -212,17 +210,13 @@ function displayBooks() {
     
     for (let i = 0; i < deleteButton.length; i++) {
         deleteButton[i].addEventListener('click', () => {
-            console.log(deleteButton[i].name);
             let removed = myLibrary.splice(parseInt(deleteButton[i].name), parseInt(1));
-            console.log(removed);
-            console.log(myLibrary);
             displayBooks();
         });
     }
 
     for (let i = 0; i < changeRead.length; i++) {
         changeRead[i].addEventListener('click', () => {
-            console.log(changeRead[i].textContent);
             if (changeRead[i].textContent === 'Finished') {
                 changeRead[i].textContent = 'Not Finished';
                 changeRead[i].style.color = 'red';

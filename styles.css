@@ -194,6 +194,10 @@ input[type='checkbox'] {
     height: 100%;
 }
 
+.book-img.two {
+    transform: scaleX(-1);
+}
+
 img {
     width: 65%;
 }
@@ -209,7 +213,7 @@ img {
     width: 100%;
 }
 
-.empty > h2 {
+.empty>h2 {
     margin-bottom: 2rem;
 }
 
